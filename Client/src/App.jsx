@@ -107,6 +107,13 @@ import DonationSection from './pages/donations/card';
 import PaymentPage from "./pages/donations/payment";
 import Requestcard from "./pages/donations/requests";
 import Routedd from "./pages/routedashboard/Routedd";
+import BeneficiaryForm from "./pages/BeneficiaryForm";
+import BeneficiaryCard from "./pages/BeneficiaryCard";
+import Profile from "./pages/profile";
+
+import ProjectDetailsPage from "./pages/donations/Projectdetails";
+
+
 
 function App() {
   return (
@@ -124,7 +131,12 @@ function App() {
           <AboutUs />
           <Footer />
         </>} />
-        
+  
+        <Route path="/PaymentPage" element={<>
+          <Navbar />
+          <PaymentPage />
+          <Footer />
+        </>} />
         <Route path="/Donate" element={<>
           <Navbar />
           <Donate />
@@ -161,9 +173,41 @@ function App() {
           <Footer />
         </>} />
 
-        <Route path="/PaymentPage" element={<>
+        <Route path="/BeneficiaryForm" element={<>
           <Navbar />
-          <PaymentPage />
+          <BeneficiaryForm />
+          <Footer />
+        </>} />
+        <Route path="/BeneficiaryCard" element={<>
+          <Navbar />
+          <BeneficiaryCard />
+          <Footer />
+        </>} />
+        <Route path="/BeneficiaryCard" element={<>
+          <Navbar />
+          <BeneficiaryCard />
+          <Footer />
+        </>} />
+
+        <Route path="/project/:id" element={<>
+          <Navbar />
+          <ProjectDetailsPage />
+          <Footer />
+        </>} />
+
+
+      
+        <Route path="/Profile" element={<>
+          <Navbar />
+          <Profile />
+          <Footer />
+        </>} />
+
+
+      
+        <Route path="/Profile" element={<>
+          <Navbar />
+          <Profile />
           <Footer />
         </>} />
 

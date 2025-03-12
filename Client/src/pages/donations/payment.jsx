@@ -3,12 +3,12 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const cardTypes = [
-  { name: "MasterCard", color: "bg-blue-700", prefix: /^5[1-5]/, logo: "/api/placeholder/60/40" },
-  { name: "Visa", color: "bg-yellow-500", prefix: /^4/, logo: "/api/placeholder/60/40" },
-  { name: "Diners Club", color: "bg-gray-600", prefix: /^3[689]/, logo: "/api/placeholder/60/40" },
-  { name: "American Express", color: "bg-green-700", prefix: /^3[47]/, logo: "/api/placeholder/60/40" },
-  { name: "Discover", color: "bg-blue-400", prefix: /^65/, logo: "/api/placeholder/60/40" },
-  { name: "Dankort", color: "bg-blue-700", prefix: /^5019/, logo: "/api/placeholder/60/40" },
+  { name: "MasterCard", color: "bg-[#2D336B]", prefix: /^5[1-5]/, logo: "/api/placeholder/60/40" },
+  { name: "Visa", color: "bg-[#2D336B]", prefix: /^4/, logo: "/api/placeholder/60/40" },
+  { name: "Diners Club", color: "bg-[#2D336B]", prefix: /^3[689]/, logo: "/api/placeholder/60/40" },
+  { name: "American Express", color: "bg-[#2D336B]", prefix: /^3[47]/, logo: "/api/placeholder/60/40" },
+  { name: "Discover", color: "bg-[#2D336B]", prefix: /^65/, logo: "/api/placeholder/60/40" },
+  { name: "Dankort", color: "bg-[#2D336B]", prefix: /^5019/, logo: "/api/placeholder/60/40" },
 ];
 
 export default function Payment() {
@@ -154,25 +154,23 @@ export default function Payment() {
     }
   };
   
- 
-
   const detectedCard = cardTypes.find((card) => card.prefix.test(cardNumber.replace(/\s/g, ""))) || null;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-900 to-indigo-900">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-2xl border border-blue-200 transform transition-all duration-300 hover:shadow-blue-900/20">
-        <h2 className="text-3xl font-bold text-center text-blue-900 border-b pb-4 border-blue-100">اختر طريقة الدفع</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#2D336B] to-[#1a1f46]">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-2xl border border-[#A9B5DF] transform transition-all duration-300 hover:shadow-[#2D336B]/20">
+        <h2 className="text-3xl font-bold text-center text-[#2D336B] border-b pb-4 border-[#A9B5DF]">اختر طريقة الدفع</h2>
         
-        <div className="flex justify-around bg-blue-50 p-4 rounded-xl shadow-inner">
+        <div className="flex justify-around bg-[#F0F3FA] p-4 rounded-xl shadow-inner">
           <label className="flex items-center cursor-pointer hover:opacity-80 transition">
             <input 
               type="radio" 
               value="cash" 
               checked={paymentMethod === "cash"} 
               onChange={() => setPaymentMethod("cash")}
-              className="w-5 h-5 text-blue-900" 
+              className="w-5 h-5 text-[#2D336B]" 
             />
-            <span className="mr-2 text-blue-900 font-medium">نقدًا</span>
+            <span className="mr-2 text-[#2D336B] font-medium">نقدًا</span>
           </label>
           <label className="flex items-center cursor-pointer hover:opacity-80 transition">
             <input 
@@ -180,90 +178,90 @@ export default function Payment() {
               value="credit" 
               checked={paymentMethod === "credit"} 
               onChange={() => setPaymentMethod("credit")}
-              className="w-5 h-5 text-blue-900" 
+              className="w-5 h-5 text-[#2D336B]" 
             />
-            <span className="mr-2 text-blue-900 font-medium">بطاقة ائتمان</span>
+            <span className="mr-2 text-[#2D336B] font-medium">بطاقة ائتمان</span>
           </label>
         </div>
         
         {paymentMethod === "cash" ? (
-          <div className="bg-blue-50 p-5 rounded-xl shadow-md">
-            <label className="block text-md font-semibold text-blue-900 mb-3 text-right">أدخل المبلغ النقدي</label>
+          <div className="bg-[#F0F3FA] p-5 rounded-xl shadow-md">
+            <label className="block text-md font-semibold text-[#2D336B] mb-3 text-right">أدخل المبلغ النقدي</label>
             <div className="relative">
               <input 
                 type="number" 
                 value={cashAmount} 
                 onChange={(e) => setCashAmount(e.target.value)} 
-                className="w-full p-4 border-2 border-blue-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition text-right bg-white" 
+                className="w-full p-4 border-2 border-[#A9B5DF] rounded-xl focus:ring-2 focus:ring-[#2D336B] focus:border-[#2D336B] transition text-right bg-white" 
                 placeholder="أدخل المبلغ"
               />
-              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-900 font-medium">دينار</span>
+              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#2D336B] font-medium">دينار</span>
             </div>
           </div>
         ) : (
           <div className="space-y-4">
             {detectedCard && (
-              <div className="flex justify-end items-center space-x-3 p-3 rounded-lg bg-blue-50">
-                <span className="text-sm text-blue-900">نوع البطاقة:</span>
+              <div className="flex justify-end items-center space-x-3 p-3 rounded-lg bg-[#F0F3FA]">
+                <span className="text-sm text-[#2D336B]">نوع البطاقة:</span>
                 <span className={`font-medium text-white px-3 py-1 rounded-lg ${detectedCard.color}`}>{detectedCard.name}</span>
                 <img src={detectedCard.logo} alt={detectedCard.name} className="w-10 h-6 object-contain" />
               </div>
             )}
             
-            <div className="bg-blue-50 p-5 rounded-xl shadow-md">
+            <div className="bg-[#F0F3FA] p-5 rounded-xl shadow-md">
               <div className="relative mb-4">
                 <input 
                   type="number" 
                   value={cashAmount} 
                   onChange={(e) => setCashAmount(e.target.value)} 
-                  className="w-full p-4 border-2 border-blue-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition text-right bg-white" 
+                  className="w-full p-4 border-2 border-[#A9B5DF] rounded-xl focus:ring-2 focus:ring-[#2D336B] focus:border-[#2D336B] transition text-right bg-white" 
                   placeholder="أدخل المبلغ"
                 />
-                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-900 font-medium">دينار</span>
+                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#2D336B] font-medium">دينار</span>
               </div>
-              <label className="block text-md font-semibold text-blue-900 mb-3 text-right">رقم البطاقة</label>
+              <label className="block text-md font-semibold text-[#2D336B] mb-3 text-right">رقم البطاقة</label>
               <input 
                 type="text" 
                 value={cardNumber} 
                 onChange={handleCardNumberChange}
-                className="w-full p-4 border-2 border-blue-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition text-right bg-white" 
+                className="w-full p-4 border-2 border-[#A9B5DF] rounded-xl focus:ring-2 focus:ring-[#2D336B] focus:border-[#2D336B] transition text-right bg-white" 
                 placeholder="1234 5678 9012 3456" 
                 maxLength={19} 
                 dir="ltr"
               />
             </div>
             
-            <div className="bg-blue-50 p-5 rounded-xl shadow-md">
-              <label className="block text-md font-semibold text-blue-900 mb-3 text-right">اسم حامل البطاقة</label>
+            <div className="bg-[#F0F3FA] p-5 rounded-xl shadow-md">
+              <label className="block text-md font-semibold text-[#2D336B] mb-3 text-right">اسم حامل البطاقة</label>
               <input 
                 type="text" 
                 value={cardHolder} 
                 onChange={(e) => setCardHolder(e.target.value.toUpperCase())} 
-                className="w-full p-4 border-2 border-blue-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition text-right bg-white" 
+                className="w-full p-4 border-2 border-[#A9B5DF] rounded-xl focus:ring-2 focus:ring-[#2D336B] focus:border-[#2D336B] transition text-right bg-white" 
                 placeholder="الاسم الكامل" 
               />
             </div>
             
             <div className="flex space-x-4 rtl:space-x-reverse">
-              <div className="w-1/2 bg-blue-50 p-5 rounded-xl shadow-md">
-                <label className="block text-md font-semibold text-blue-900 mb-3 text-right">تاريخ الانتهاء</label>
+              <div className="w-1/2 bg-[#F0F3FA] p-5 rounded-xl shadow-md">
+                <label className="block text-md font-semibold text-[#2D336B] mb-3 text-right">تاريخ الانتهاء</label>
                 <input 
                   type="text" 
                   value={expiry} 
                   onChange={handleExpiryChange} 
-                  className="w-full p-4 border-2 border-blue-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition text-center bg-white" 
+                  className="w-full p-4 border-2 border-[#A9B5DF] rounded-xl focus:ring-2 focus:ring-[#2D336B] focus:border-[#2D336B] transition text-center bg-white" 
                   placeholder="MM/YY" 
                   maxLength={5}
                   dir="ltr"
                 />
               </div>
-              <div className="w-1/2 bg-blue-50 p-5 rounded-xl shadow-md">
-                <label className="block text-md font-semibold text-blue-900 mb-3 text-right">رمز CVC</label>
+              <div className="w-1/2 bg-[#F0F3FA] p-5 rounded-xl shadow-md">
+                <label className="block text-md font-semibold text-[#2D336B] mb-3 text-right">رمز CVC</label>
                 <input 
                   type="text" 
                   value={cvc} 
                   onChange={(e) => setCvc(e.target.value.replace(/[^0-9]/g, ""))} 
-                  className="w-full p-4 border-2 border-blue-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition text-center bg-white" 
+                  className="w-full p-4 border-2 border-[#A9B5DF] rounded-xl focus:ring-2 focus:ring-[#2D336B] focus:border-[#2D336B] transition text-center bg-white" 
                   placeholder="123" 
                   maxLength={3}
                   dir="ltr"
@@ -274,9 +272,8 @@ export default function Payment() {
         )}
         
         <button 
-          className="w-full py-4 font-bold text-white bg-blue-900 hover:bg-blue-800 rounded-xl shadow-lg transition duration-300 focus:ring-4 focus:ring-blue-800 focus:ring-opacity-50 transform hover:scale-105"
+          className="w-full py-4 font-bold text-white bg-[#2D336B] hover:bg-[#1f2551] rounded-xl shadow-lg transition duration-300 focus:ring-4 focus:ring-[#A9B5DF] focus:ring-opacity-50 transform hover:scale-105"
           onClick={handlePayment}
-          style={{ backgroundColor: "#2D336B" }}
         >
           {paymentMethod === "cash" ? "التبرع نقدًا" : "تبرع الآن"}
         </button>

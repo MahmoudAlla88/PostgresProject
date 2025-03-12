@@ -105,7 +105,7 @@ export function Users() {
                 <option value="beneficiary">المستفيدين</option>
               </select>
             </div>
-            <div className="w-full md:w-1/2 lg:w-1/3">
+            {/* <div className="w-full md:w-1/2 lg:w-1/3">
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 فلترة حسب الحالة
               </label>
@@ -118,11 +118,11 @@ export function Users() {
                 <option value="pending">قيد الانتظار</option>
                 <option value="approved">موافق</option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           {/* Modal for editing status */}
-          {editingUser && (
+          {/* {editingUser && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
               <div className="bg-white rounded-lg p-6 w-96 shadow-xl" dir="rtl">
                 <h3 className="text-lg font-bold mb-4">تعديل حالة المستخدم</h3>
@@ -159,7 +159,7 @@ export function Users() {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
 
           {/* Table */}
           <div className="overflow-x-auto rounded-lg border border-gray-200">
@@ -226,7 +226,7 @@ export function Users() {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {user.address || "-"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      {/* <td className="px-6 py-4 whitespace-nowrap">
                         <span
                           className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
                             statusColors[user.status] ||
@@ -245,7 +245,7 @@ export function Users() {
                         >
                           تعديل
                         </button>
-                      </td>
+                      </td> */}
                     </tr>
                   ))
                 ) : (

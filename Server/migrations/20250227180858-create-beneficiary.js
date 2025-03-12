@@ -1,37 +1,71 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Beneficiaries', {
+    await queryInterface.createTable("Beneficiaries", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      eligibilityStatus: {
-        type: Sequelize.STRING
+      statusPerson: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "",
+      },
+      address: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "",
+      },
+      type: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "",
+      },
+      needs: {
+        type: Sequelize.JSON,
+        allowNull: false,
+        defaultValue: {
+          food: false,
+          books: false,
+          clothes: false,
+        },
+      },
+      document: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "قيد الانتظار",
       },
       needsDescription: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false,
+        defaultValue: "",
       },
       approvedByAdmin: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Beneficiaries');
-  }
+    await queryInterface.dropTable("Beneficiaries");
+  },
 };

@@ -18,9 +18,49 @@ module.exports = (sequelize, DataTypes) => {
   Beneficiary.init(
     {
       userId: DataTypes.INTEGER,
-      eligibilityStatus: DataTypes.STRING,
-      needsDescription: DataTypes.TEXT,
-      approvedByAdmin: DataTypes.BOOLEAN,
+      statusPerson: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "",
+      },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "",
+      },
+      type: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "",
+      },
+      needs: {
+        type: DataTypes.JSON,
+        allowNull: false,
+        defaultValue: {
+          food: false,
+          books: false,
+          clothes: false,
+        },
+      },
+      document: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "قيد الانتظار",
+      },
+      needsDescription: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        defaultValue: "",
+      },
+      approvedByAdmin: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
     },
     {
       sequelize,

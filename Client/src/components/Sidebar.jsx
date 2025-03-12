@@ -8,7 +8,7 @@ import {
   ArrowRightOnRectangleIcon,
   PlusCircleIcon
 } from "@heroicons/react/24/solid";
-
+import {  Heart } from "lucide-react";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,15 +16,11 @@ const Sidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  // const links = [
-  //   { name: "الصفحة الرئيسية", path: "/home", icon: <HomeIcon className="w-5 h-5" /> },
-  //   { name: "المستخدمون", path: "/users", icon: <UserCircleIcon className="w-5 h-5" /> },
-  //   { name: "الرسائل", path: "/message", icon: <ChatBubbleLeftIcon className="w-5 h-5" /> },
-  //   { name: "اضافة مشروع", path: "/AddProjectForm", icon: <PlusCircleIcon className="w-5 h-5" /> },
-  // ];
+  
   const links = [
     { name: "الصفحة الرئيسية", path: "/dashboard/overview", icon: <HomeIcon className="w-5 h-5" /> },
     { name: "المستخدمون", path: "/dashboard/users", icon: <UserCircleIcon className="w-5 h-5" /> },
+    { name: "المستفيدون", path: "/dashboard/Beneficiaries", icon: <UserCircleIcon className="w-5 h-5" /> },
     { name: "الرسائل", path: "/dashboard/message", icon: <ChatBubbleLeftIcon className="w-5 h-5" /> },
     { name: "إضافة مشروع", path: "/dashboard/AddProjectForm", icon: <PlusCircleIcon className="w-5 h-5" /> },
   ];
@@ -54,7 +50,13 @@ const Sidebar = () => {
         </button>
 
         {/* عنوان الموقع */}
-        <h1 className="text-xl font-bold text-center">جود</h1>
+        <div className="flex items-center justify-center">
+  <Heart className="w-6 h-6 text-white mr-2 animate-pulse" />
+  <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-rose-500 bg-clip-text text-white">
+    جود
+  </div>
+</div>
+
 
         {/* الروابط (تم إنزالها إلى الأسفل بـ mt-10) */}
         <ul className="flex-1 mt-10 space-y-3">
@@ -76,7 +78,7 @@ const Sidebar = () => {
 
         {/* زر تسجيل الخروج */}
         <NavLink
-          to="/"
+          to="/Login"
           className="mt-auto flex flex-row-reverse items-center gap-2 p-3 rounded-md bg-red-600 hover:bg-red-700 transition"
         >
           <ArrowRightOnRectangleIcon className="w-5 h-5" /> <span>تسجيل الخروج</span>
